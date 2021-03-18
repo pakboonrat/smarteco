@@ -1,0 +1,36 @@
+<div class="container mt-3">
+  <div class="d-flex justify-content between flex-wrap flex-md-nowrap aling-items-center pt-2 pd-2 md-3 border-bottom">
+    <h1>Nikom List</h1>
+  </div>
+
+  <div class="table-responsive">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">นิคม</th>
+          <th scope="col">ชื่อ</th>
+          <th scope="col">นามสกุล</th>
+          <th scope="col">username</th>
+          <th scope="col">email</th>
+          <th scope="col">tel</th>
+          <th class="text-center" scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let nikom of Nikoms; let i = index">
+          <th scope="row">{{nikom._id}}</th>
+          <td>{{nikom.name}}</td>
+          <td>{{nikom.firstname}}</td>
+          <td>{{nikom.surname}}</td>
+          <td>{{nikom.username}}</td>
+          <td>{{nikom.email}}</td>
+          <td>{{nikom.tel}}</td>
+          <td class="text-center">
+            <button class="btn btn-sm btn-primary" routerLink="/edit-nikom/{{nikom._id}}">EDIT</button>
+            <button class="btn btn-sm btn-danger" (click)="delete(nikom._id,i)" >DELETE</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
